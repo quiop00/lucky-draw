@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hái Lộc Tết Bính Ngọ 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(2deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+      }
+      @keyframes shake {
+        0%, 100% { transform: translateX(0) rotate(0); }
+        25% { transform: translateX(-5px) rotate(-5deg); }
+        75% { transform: translateX(5px) rotate(5deg); }
+      }
+      @keyframes lid-pop {
+        0% { transform: translateY(0) rotate(0); opacity: 1; }
+        100% { transform: translateY(-120px) rotate(45deg); opacity: 0; }
+      }
+      @keyframes glow-burst {
+        0% { transform: scale(0.5); opacity: 0; }
+        50% { opacity: 0.8; }
+        100% { transform: scale(2.5); opacity: 0; }
+      }
+      @keyframes blossom-fall {
+        0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(110vh) translateX(20vw) rotate(360deg); opacity: 0; }
+      }
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+      .animate-shake {
+        animation: shake 0.1s ease-in-out infinite;
+      }
+      .animate-lid-pop {
+        animation: lid-pop 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .animate-glow-burst {
+        animation: glow-burst 0.6s forwards ease-out;
+      }
+      .blossom {
+        position: fixed;
+        top: -10%;
+        color: #ffcc00;
+        font-size: 20px;
+        z-index: 10;
+        pointer-events: none;
+        animation: blossom-fall 10s linear infinite;
+      }
+      .perspective {
+        perspective: 1000px;
+      }
+      body {
+        background: radial-gradient(circle at center, #9e0000 0%, #3a0000 100%);
+        background-attachment: fixed;
+      }
+      .tet-pattern {
+        background-image: radial-gradient(#ffd700 0.8px, transparent 0.8px);
+        background-size: 40px 40px;
+        opacity: 0.15;
+      }
+      .horse-bg-icon {
+        position: fixed;
+        font-size: 300px;
+        color: rgba(255, 215, 0, 0.03);
+        bottom: -50px;
+        right: -50px;
+        transform: rotate(-15deg);
+        pointer-events: none;
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="min-h-screen text-white overflow-x-hidden relative">
+    <div class="fixed inset-0 tet-pattern pointer-events-none"></div>
+    <i class="fa-solid fa-horse horse-bg-icon"></i>
+    <div id="root"></div>
+
+    <!-- Falling Blossoms Generation -->
+    <script>
+      for(let i=0; i<15; i++) {
+        const b = document.createElement('div');
+        b.className = 'blossom';
+        b.innerHTML = '🌸';
+        b.style.left = Math.random() * 100 + 'vw';
+        b.style.animationDelay = Math.random() * 10 + 's';
+        b.style.opacity = Math.random();
+        document.body.appendChild(b);
+      }
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
